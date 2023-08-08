@@ -142,3 +142,31 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// Destructuring Objects
+const book = getBook(1);
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+  book;
+book;
+
+// Destructuring Arrays and ...rest
+const [primary, secondary, ...rest] = genres;
+
+primary;
+secondary;
+rest;
+
+// Rest and Spread with Arrays
+const newGenres = [...genres, "epic fantasy"];
+newGenres;
+
+// Rest and Spread with Objects
+const updatedBook = {
+  ...book,
+  // Adding new property
+  moviePublicationDate: "2001-12-19",
+  // Overwriting an existing property
+  pages: 1210,
+  id: 99,
+};
+updatedBook;
