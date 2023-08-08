@@ -144,60 +144,92 @@ function getBook(id) {
 }
 
 // Destructuring Objects
-const book = getBook(1);
-const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
-  book;
-book;
+// const book = getBook(1);
+// const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+//   book;
+// book;
 
-// Destructuring Arrays and ...rest
-const [primary, secondary, ...rest] = genres;
+// // Destructuring Arrays and ...rest
+// const [primary, secondary, ...rest] = genres;
 
-primary;
-secondary;
-rest;
+// primary;
+// secondary;
+// rest;
 
-// Rest and Spread with Arrays
-const newGenres = [...genres, 'epic fantasy'];
-newGenres;
+// // Rest and Spread with Arrays
+// const newGenres = [...genres, 'epic fantasy'];
+// newGenres;
 
-// Rest and Spread with Objects
-const updatedBook = {
-  ...book,
-  // Adding new property
-  moviePublicationDate: '2001-12-19',
-  // Overwriting an existing property
-  pages: 1210,
-  id: 99,
-};
-updatedBook;
+// // Rest and Spread with Objects
+// const updatedBook = {
+//   ...book,
+//   // Adding new property
+//   moviePublicationDate: '2001-12-19',
+//   // Overwriting an existing property
+//   pages: 1210,
+//   id: 99,
+// };
+// updatedBook;
 
-// function getYear(str) {
-//   return str.split("-")[0];
-// }
+// // function getYear(str) {
+// //   return str.split("-")[0];
+// // }
 
-const getYear = str => str.split('-')[0];
+// const getYear = str => str.split('-')[0];
 
-console.log(getYear(publicationDate));
+// console.log(getYear(publicationDate));
 
-// Short-circuiting AND
-console.log(true && 'string');
-console.log(false && 'string');
-console.log(hasMovieAdaptation && 'This book has a movie');
+// // Short-circuiting AND
+// console.log(true && 'string');
+// console.log(false && 'string');
+// console.log(hasMovieAdaptation && 'This book has a movie');
 
-// falsy values: 0, null, '', undefined
-console.log(0 && 'Some String');
+// // falsy values: 0, null, '', undefined
+// console.log(0 && 'Some String');
 
-// Short-circuiting OR
-console.log(true || 'Some string');
-console.log(false || 'Some string');
+// // Short-circuiting OR
+// console.log(true || 'Some string');
+// console.log(false || 'Some string');
 
-const spanishTranslation = book.translations.spanish || 'NOT TRANSLATED';
-console.log(spanishTranslation);
+// const spanishTranslation = book.translations.spanish || 'NOT TRANSLATED';
+// console.log(spanishTranslation);
 
-book.reviews.librarything.reviewsCount = 0;
+// book.reviews.librarything.reviewsCount = 0;
 
-console.log(book.reviews.librarything.reviewsCount);
+// console.log(book.reviews.librarything.reviewsCount);
 
-// const countWrong = book.reviews.librarything.reviewsCount || 'no data';
-const countWrong = book.reviews.librarything.reviewsCount ?? 'no data';
-console.log(countWrong);
+// // const countWrong = book.reviews.librarything.reviewsCount || 'no data';
+// const countWrong = book.reviews.librarything.reviewsCount ?? 'no data';
+// console.log(countWrong);
+
+// Array .map
+const books = getBooks();
+
+const map = [1, 2, 3, 5, 6].map(el => el * 2);
+console.log(map);
+
+const titles = books.map(book => book.title); // gets all titles of the books object
+console.log(titles);
+
+const essentialData = books.map(book => ({
+  title: book.title,
+  author: book.author,
+}));
+
+console.log(essentialData);
+
+// Array .filter
+const longBooksWithMovies = books
+  .filter(book => book.pages >= 500)
+  .filter(book => book.hasMovieAdaptation);
+console.log(longBooksWithMovies);
+
+const adventureBooks = books
+  .filter(books => books.genres.includes('adventure'))
+  .map(book => book.title);
+
+console.log(adventureBooks);
+
+// Array .reduce
+const addUp = books.reduce((acc, book) => acc + book.pages, 0);
+console.log(addUp);
