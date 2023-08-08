@@ -233,3 +233,12 @@ console.log(adventureBooks);
 // Array .reduce
 const addUp = books.reduce((acc, book) => acc + book.pages, 0);
 console.log(addUp);
+
+// Array sorting - NOT IMMUTABLE!
+const arr = [3, 7, 1, 9, 6];
+const sorted = arr.slice().sort((a, b) => a - b);
+console.log(sorted);
+
+// Descending sorting w objects
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+console.log(sortedByPages);
