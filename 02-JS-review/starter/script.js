@@ -205,40 +205,62 @@ function getBook(id) {
 // Array .map
 const books = getBooks();
 
-const map = [1, 2, 3, 5, 6].map(el => el * 2);
-console.log(map);
+// const map = [1, 2, 3, 5, 6].map(el => el * 2);
+// console.log(map);
 
-const titles = books.map(book => book.title); // gets all titles of the books object
-console.log(titles);
+// const titles = books.map(book => book.title); // gets all titles of the books object
+// console.log(titles);
 
-const essentialData = books.map(book => ({
-  title: book.title,
-  author: book.author,
-}));
+// const essentialData = books.map(book => ({
+//   title: book.title,
+//   author: book.author,
+// }));
 
-console.log(essentialData);
+// console.log(essentialData);
 
-// Array .filter
-const longBooksWithMovies = books
-  .filter(book => book.pages >= 500)
-  .filter(book => book.hasMovieAdaptation);
-console.log(longBooksWithMovies);
+// // Array .filter
+// const longBooksWithMovies = books
+//   .filter(book => book.pages >= 500)
+//   .filter(book => book.hasMovieAdaptation);
+// console.log(longBooksWithMovies);
 
-const adventureBooks = books
-  .filter(books => books.genres.includes('adventure'))
-  .map(book => book.title);
+// const adventureBooks = books
+//   .filter(books => books.genres.includes('adventure'))
+//   .map(book => book.title);
 
-console.log(adventureBooks);
+// console.log(adventureBooks);
 
-// Array .reduce
-const addUp = books.reduce((acc, book) => acc + book.pages, 0);
-console.log(addUp);
+// // Array .reduce
+// const addUp = books.reduce((acc, book) => acc + book.pages, 0);
+// console.log(addUp);
 
-// Array sorting - NOT IMMUTABLE!
-const arr = [3, 7, 1, 9, 6];
-const sorted = arr.slice().sort((a, b) => a - b);
-console.log(sorted);
+// // Array sorting - NOT IMMUTABLE!
+// const arr = [3, 7, 1, 9, 6];
+// const sorted = arr.slice().sort((a, b) => a - b);
+// console.log(sorted);
 
-// Descending sorting w objects
-const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
-console.log(sortedByPages);
+// // Descending sorting w objects
+// const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+// console.log(sortedByPages);
+
+// Immutable Arrays
+// 1) Add object to array
+
+const newBook = {
+  id: 6,
+  title: 'Harry Potter and the Chamber of Secrets',
+  author: 'J. K. Rowling',
+};
+
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2) Delete book object from array
+console.log(booksAfterAdd);
+const booksAfterDelete = booksAfterAdd.filter(book => book.id !== 3);
+console.log(booksAfterDelete);
+
+const booksAfterUpdate = booksAfterDelete.map(book =>
+  book.id === 1 ? { ...book, pages: 1210 } : book
+);
+console.log(booksAfterUpdate);
