@@ -246,21 +246,38 @@ const books = getBooks();
 // Immutable Arrays
 // 1) Add object to array
 
-const newBook = {
-  id: 6,
-  title: 'Harry Potter and the Chamber of Secrets',
-  author: 'J. K. Rowling',
+// const newBook = {
+//   id: 6,
+//   title: 'Harry Potter and the Chamber of Secrets',
+//   author: 'J. K. Rowling',
+// };
+
+// const booksAfterAdd = [...books, newBook];
+// booksAfterAdd;
+
+// // 2) Delete book object from array
+// console.log(booksAfterAdd);
+// const booksAfterDelete = booksAfterAdd.filter(book => book.id !== 3);
+// console.log(booksAfterDelete);
+
+// const booksAfterUpdate = booksAfterDelete.map(book =>
+//   book.id === 1 ? { ...book, pages: 1210 } : book
+// );
+// console.log(booksAfterUpdate);
+
+// Async JS: Promises
+
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+//   .then(res => res.json())
+//   .then(data => console.log(data));
+
+// Async JS: Async/Await
+
+const getJSON = async function (url) {
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data);
 };
+getJSON('https://jsonplaceholder.typicode.com/todos/1');
 
-const booksAfterAdd = [...books, newBook];
-booksAfterAdd;
-
-// 2) Delete book object from array
-console.log(booksAfterAdd);
-const booksAfterDelete = booksAfterAdd.filter(book => book.id !== 3);
-console.log(booksAfterDelete);
-
-const booksAfterUpdate = booksAfterDelete.map(book =>
-  book.id === 1 ? { ...book, pages: 1210 } : book
-);
-console.log(booksAfterUpdate);
+console.log('Not Blocked');
