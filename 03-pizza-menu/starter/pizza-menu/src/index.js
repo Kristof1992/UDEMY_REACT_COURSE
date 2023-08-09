@@ -94,21 +94,27 @@ function Menu() {
 
 // Immediately destructuring props
 function Pizza({ pizzaObj }) {
-  if (pizzaObj.soldOut) return null;
-
   return (
-    <div className="pizza">
+    <div className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
-        <span>{pizzaObj.price + 3}</span>
+
+        {/* ANOTHER WAY OF USING CONDITIONALS TO SHOW HTML  */}
+        {/* {pizzaObj.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>{pizzaObj.price}</span>
+        )} */}
+
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </div>
   );
 }
 
-function Footer(props) {
+function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
   const closeHour = 22;
@@ -127,7 +133,7 @@ function Footer(props) {
   );
 }
 
-function Order({ openHour, closeHour }) {
+function Order({ closeHour }) {
   return (
     <div className="order">
       <p>We're open until {closeHour}:00. Come visit us or order online.</p>
