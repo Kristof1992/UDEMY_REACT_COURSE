@@ -30,7 +30,7 @@ function Button({ children, onClick }) {
 }
 
 export default function App() {
-  const [showAddFriend, setShowAddFriend] = useState(true);
+  const [showAddFriend, setShowAddFriend] = useState(false);
   const [friends, setFriends] = useState(initialFriends);
   const [selectedFriend, setSelectedFriend] = useState(null);
 
@@ -77,6 +77,7 @@ export default function App() {
         <FormSplitBill
           selectedFriend={selectedFriend}
           onSplitBill={handleSplitBill}
+          key={selectedFriend.id}
         ></FormSplitBill>
       )}
     </div>
