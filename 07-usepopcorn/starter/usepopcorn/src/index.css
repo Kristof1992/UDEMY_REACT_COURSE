@@ -54,8 +54,13 @@ body {
   max-width: 42rem;
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: scroll;
   position: relative;
+}
+
+.box::-webkit-scrollbar {
+  /* display: none; */
 }
 
 .loader {
