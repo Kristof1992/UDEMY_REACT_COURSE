@@ -4,7 +4,7 @@ const API_KEY = "94ee5a4c";
 
 // Fetches data and triggers render when done. Until data arrives displays loading...
 /**
- * @React_Hook
+ * @Hook
  */
 export function useMovies(query) {
   const [movies, setMovies] = useState([]);
