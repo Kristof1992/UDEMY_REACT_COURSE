@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function DateCounter() {
+export default function DateCounter() {
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
 
@@ -58,4 +58,3 @@ function DateCounter() {
     </div>
   );
 }
-export default DateCounter;
