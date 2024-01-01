@@ -1,12 +1,13 @@
 import PageNav from "../components/PageNav";
-import AppNav from "../components/AppNav";
+
 import { Link } from "react-router-dom";
+import styles from "./Homepage.module.css";
 
 function Homepage() {
   return (
-    <div>
+    <div className={styles.homepage}>
       <PageNav />
-      <AppNav />
+
       <h1 className="test">WorldWise</h1>
       <Link to="/app">Go to the app</Link>
     </div>
