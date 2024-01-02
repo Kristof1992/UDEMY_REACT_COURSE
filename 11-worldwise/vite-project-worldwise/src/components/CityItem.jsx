@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCities } from "../contexts/CitiesContext";
+
 import styles from "./CityItem.module.css";
 
 const formatDate = (date) =>
@@ -20,9 +20,7 @@ function CityItem({ city }) {
   return (
     <li>
       <Link
-        // className={`${styles.cityItem} ${
-        //   id === currentCity.id ? styles["cityItem--active"] : ""
-        // }`}
+        className={styles.cityItem}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
         {city.cityName}
