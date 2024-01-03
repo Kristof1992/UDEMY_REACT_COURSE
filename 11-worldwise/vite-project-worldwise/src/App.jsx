@@ -14,6 +14,8 @@ import Form from "./components/Form";
 
 import { useEffect, useState } from "react";
 
+import { Navigate } from "react-router-dom";
+
 const BASE_URL = "http://localhost:9000";
 
 function App() {
@@ -45,10 +47,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="*" element={<PageNotFound />}></Route>
         <Route path="app" element={<AppLayout />}>
-          <Route
-            index
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          ></Route>
+          <Route index element={<Navigate replace to={"cities"} />}></Route>
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
