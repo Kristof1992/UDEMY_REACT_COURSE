@@ -13,7 +13,6 @@ const formatDate = (date) =>
 
 function City() {
   const { id } = useParams();
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const lat = searchParams.get("lat");
@@ -26,6 +25,8 @@ function City() {
     date: "2027-10-31T15:59:59.138Z",
     notes: "My favorite city so far!",
   };
+
+  console.log("City: render");
 
   const { cityName, emoji, date, notes } = currentCity;
   return (
