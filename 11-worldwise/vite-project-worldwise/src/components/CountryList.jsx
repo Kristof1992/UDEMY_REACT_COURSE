@@ -3,7 +3,10 @@ import Spinner from "./Spinner";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 
-function CountryList({ cities, isLoading }) {
+import { useCities } from "../contexts/CitiesContext";
+
+function CountryList() {
+  const { cities, isLoading } = useCities();
   function reduceDuplicates(arr) {
     const newHashMap = new Map();
     for (let i = 0; i < arr.length; i++) {
