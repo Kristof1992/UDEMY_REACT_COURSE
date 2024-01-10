@@ -37,268 +37,28 @@
       "id": 98443197
     },
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
+      "cityName": "Luxembourg",
+      "country": "Luxembourg",
+      "emoji": "🇱🇺",
+      "date": "2024-01-10T12:35:42.850Z",
+      "notes": "",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930332
-    },
-    {
-      "cityName": "Linares",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-01-08T19:54:20.321Z",
-      "notes": "dfhgfgh",
-      "position": {
-        "lat": "38.112949789189635",
-        "lng": "-3.5705566406250004"
+        "lat": "49.58934857766429",
+        "lng": "6.141357421875001"
       },
       "id": 98443198
     },
     {
-      "cityName": "Portimão",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-08T20:34:51.708Z",
-      "notes": "Asd",
-      "position": {
-        "lat": "37.112145754751516",
-        "lng": "-8.602294921875002"
-      },
-      "id": 98443199
-    },
-    {
-      "cityName": "Albufeira",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-08T20:34:51.708Z",
-      "notes": "asdfergfv b",
-      "position": {
-        "lat": "37.09023980307208",
-        "lng": "-8.241119384765627"
-      },
-      "id": 98443200
-    },
-    {
-      "cityName": "Almancil",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-08T20:34:51.708Z",
-      "notes": "asdff",
-      "position": {
-        "lat": "37.073806182683754",
-        "lng": "-8.062591552734377"
-      },
-      "id": 98443201
-    },
-    {
-      "cityName": "Olhão",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-08T20:34:51.708Z",
-      "notes": "gbtfrgbrfg",
-      "position": {
-        "lat": "37.0266767305112",
-        "lng": "-7.822265625000001"
-      },
-      "id": 98443202
-    },
-    {
-      "cityName": "Loulé (São Clemente)",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-08T20:39:42.145Z",
-      "notes": "ghtgfh",
-      "position": {
-        "lat": "37.1460874594867",
-        "lng": "-8.013153076171877"
-      },
-      "id": 98443203
-    },
-    {
-      "cityName": "São Bartolomeu de Messines",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-08T20:43:19.762Z",
-      "notes": "kliuo",
-      "position": {
-        "lat": "37.256019560567296",
-        "lng": "-8.291931152343752"
-      },
-      "id": 98443204
-    },
-    {
-      "cityName": "Salir",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-08T20:43:39.589Z",
-      "notes": "p",
-      "position": {
-        "lat": "37.23743533287162",
-        "lng": "-8.044738769531252"
-      },
-      "id": 98443205
-    },
-    {
-      "cityName": "Bordeaux",
+      "cityName": "Cormontreuil",
       "country": "France",
       "emoji": "🇫🇷",
-      "date": "2024-01-08T20:48:21.857Z",
+      "date": "2024-01-10T12:35:52.195Z",
       "notes": "",
       "position": {
-        "lat": "44.820812031724444",
-        "lng": "-0.5767822265625001"
+        "lat": "49.2140089056539",
+        "lng": "4.064941406250001"
       },
-      "id": 98443206
-    },
-    {
-      "cityName": "Albacete",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-01-08T20:54:02.671Z",
-      "notes": "",
-      "position": {
-        "lat": "38.96795115401593",
-        "lng": "-1.8347167968750002"
-      },
-      "id": 98443207
-    },
-    {
-      "cityName": "Alins",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-01-08T20:54:37.879Z",
-      "notes": "",
-      "position": {
-        "lat": "42.553080288955826",
-        "lng": "1.34033203125"
-      },
-      "id": 98443208
-    },
-    {
-      "cityName": "Monaco",
-      "country": "Monaco",
-      "emoji": "🇲🇨",
-      "date": "2024-01-08T20:55:42.903Z",
-      "notes": "",
-      "position": {
-        "lat": "43.73042168160789",
-        "lng": "7.417144775390626"
-      },
-      "id": 98443209
-    },
-    {
-      "cityName": "Baku City",
-      "country": "Azerbaijan",
-      "emoji": "🇦🇿",
-      "date": "2024-01-08T20:58:02.883Z",
-      "notes": "",
-      "position": {
-        "lat": "40.17887331434698",
-        "lng": "49.921875"
-      },
-      "id": 98443210
-    },
-    {
-      "cityName": "In Salah",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2024-01-08T21:00:07.724Z",
-      "notes": "",
-      "position": {
-        "lat": "27.97499795326776",
-        "lng": "2.6806640625"
-      },
-      "id": 98443211
-    },
-    {
-      "cityName": "Porreres",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-01-08T21:01:57.722Z",
-      "notes": "",
-      "position": {
-        "lat": "39.52099229357195",
-        "lng": "3.0322265625000004"
-      },
-      "id": 98443212
-    },
-    {
-      "cityName": "Feidh El Botma",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2024-01-08T21:02:22.675Z",
-      "notes": "",
-      "position": {
-        "lat": "34.59704151614417",
-        "lng": "3.7792968750000004"
-      },
-      "id": 98443213
-    },
-    {
-      "cityName": "Brezina",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2024-01-08T21:02:47.413Z",
-      "notes": "",
-      "position": {
-        "lat": "32.26855544621476",
-        "lng": "1.56005859375"
-      },
-      "id": 98443214
-    },
-    {
-      "cityName": "Oum el Assel",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2024-01-08T21:03:32.917Z",
-      "notes": "",
-      "position": {
-        "lat": "28.033197847676377",
-        "lng": "-5.690917968750001"
-      },
-      "id": 98443215
-    },
-    {
-      "cityName": "El Oued",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2024-01-08T21:09:14.099Z",
-      "notes": "",
-      "position": {
-        "lat": "33.358061612778876",
-        "lng": "6.888427734375"
-      },
-      "id": 44367305
-    },
-    {
-      "cityName": "Torres Novas (Santa Maria, Salvador e Santiago)",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-09T12:28:51.193Z",
-      "notes": "",
-      "position": {
-        "lat": "39.46164364205549",
-        "lng": "-8.541870117187502"
-      },
-      "id": 39014269
-    },
-    {
-      "cityName": "Pombal",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-01-09T12:30:23.914Z",
-      "notes": "",
-      "position": {
-        "lat": "39.90130858574738",
-        "lng": "-8.607788085937502"
-      },
-      "id": 5750489
+      "id": 98443199
     }
   ]
 }
