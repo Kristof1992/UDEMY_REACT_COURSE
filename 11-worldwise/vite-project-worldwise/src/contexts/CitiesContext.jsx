@@ -68,7 +68,6 @@ function CitiesProvider({ children }) {
   );
 
   useEffect(() => {
-    console.log();
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {

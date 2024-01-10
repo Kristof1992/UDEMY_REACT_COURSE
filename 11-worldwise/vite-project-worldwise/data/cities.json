@@ -49,16 +49,28 @@
       "id": 98443198
     },
     {
-      "cityName": "Cormontreuil",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-01-10T12:35:52.195Z",
+      "cityName": "Witaszyce",
+      "country": "Poland",
+      "emoji": "🇵🇱",
+      "date": "2024-01-10T19:03:21.199Z",
       "notes": "",
       "position": {
-        "lat": "49.2140089056539",
-        "lng": "4.064941406250001"
+        "lat": "51.944264879028765",
+        "lng": "17.578125000000004"
       },
       "id": 98443199
+    },
+    {
+      "cityName": "Banská Bystrica",
+      "country": "Slovakia",
+      "emoji": "🇸🇰",
+      "date": "2024-01-10T19:03:33.039Z",
+      "notes": "",
+      "position": {
+        "lat": "48.73445537176822",
+        "lng": "19.16015625"
+      },
+      "id": 98443200
     }
   ]
 }
