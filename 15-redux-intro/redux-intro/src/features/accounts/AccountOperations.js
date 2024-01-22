@@ -20,7 +20,7 @@ function AccountOperations() {
     if (!depositAmount) return;
     dispatch(deposit(depositAmount, currency));
     setDepositAmount("");
-    setCurrency("");
+    setCurrency("USD");
   }
 
   function handleWithdrawal() {
@@ -38,6 +38,8 @@ function AccountOperations() {
   function handlePayLoan() {
     dispatch(payLoan());
   }
+
+  console.log(isLoading);
 
   return (
     <div>

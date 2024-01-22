@@ -8,6 +8,7 @@ const initialStateAccount = {
 export default function accountReducer(state = initialStateAccount, action) {
   switch (action.type) {
     case "account/deposit":
+      console.log(`depositing`);
       return {
         ...state,
         balance: state.balance + action.payload,
@@ -51,16 +52,14 @@ export function deposit(amount, currency) {
 
   return async function (dispatch, getState) {
     dispatch({ type: "account/convertingCurrency" });
-    // API call
+
     const res = await fetch(
       `https://api.frankfurter.app/latest?amount=${amount}&from=${currency}&to=USD`
     );
-
     const data = await res.json();
-    const converted = data.rates.usd;
+    const converted = data.rates.USD;
 
-    // return action
-    return { type: "account/deposit", payload: converted };
+    dispatch({ type: "account/deposit", payload: converted });
   };
 }
 
