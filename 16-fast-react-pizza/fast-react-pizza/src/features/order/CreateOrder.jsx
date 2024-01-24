@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 
 import { createOrder } from "../../services/apiRestaurant";
 
@@ -34,8 +34,12 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === "submitting";
   // const [withPriority, setWithPriority] = useState(false);
   const cart = fakeCart;
+
+  const formErrors = useActionData();
 
   return (
     <div>
@@ -53,6 +57,7 @@ function CreateOrder() {
           <div>
             <input type="tel" name="phone" required />
           </div>
+          {formErrors?.phone && <p>{formErrors.phone}</p>}
         </div>
 
         <div>
@@ -79,7 +84,9 @@ function CreateOrder() {
             name={"cart"}
             value={JSON.stringify(cart)}
           ></input>
-          <button>Order now</button>
+          <button disabled={isSubmitting}>
+            {`${isSubmitting ? "Placing order..." : "Order now"}`}Order now
+          </button>
         </div>
       </Form>
     </div>
@@ -88,17 +95,27 @@ function CreateOrder() {
 // Router calls action function and passes in the submitted request
 // HTTP POST REQUEST
 export async function action({ request }) {
-  console.log(request);
+  // 1) Getting Front-end data from form
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
 
+  // 2) Processing data a bit
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
     priority: data.priority === "on",
   };
 
+  const errors = {};
+  if (!isValidPhone(order.phone))
+    errors.phone =
+      "Please give us your correct phone number. We might need it to contact you.";
+  if (Object.keys(errors).length > 0) return errors;
+
+  // 3) Creating a new order
   const newOrder = await createOrder(order);
+  console.log(newOrder);
+
   return redirect(`/order/${newOrder.id}`);
 }
 
