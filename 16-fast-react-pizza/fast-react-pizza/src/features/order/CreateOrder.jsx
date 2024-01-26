@@ -3,6 +3,8 @@ import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 
 import { createOrder } from '../../services/apiRestaurant';
 
+import Button from '../../ui/Button';
+
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -49,13 +51,13 @@ function CreateOrder() {
       <Form method={`POST`}>
         <div>
           <label>First Name</label>
-          <input type="text" name="customer" required />
+          <input className="input" type="text" name="customer" required />
         </div>
 
         <div>
           <label>Phone number</label>
           <div>
-            <input type="tel" name="phone" required />
+            <input className="input" type="tel" name="phone" required />
           </div>
           {formErrors?.phone && <p>{formErrors.phone}</p>}
         </div>
@@ -63,12 +65,28 @@ function CreateOrder() {
         <div>
           <label>Address</label>
           <div>
-            <input type="text" name="address" required />
+            <input
+              className="input"
+              type="text"
+              name="address"
+              required
+              placeholder="24 Anchor Street"
+            />
           </div>
         </div>
 
         <div>
           <input
+            className="
+            accent
+            h-6
+            w-6
+            accent-yellow-400
+            focus:outline-none
+            focus:ring
+          focus:ring-yellow-400
+            focus:ring-offset-2
+            "
             type="checkbox"
             name="priority"
             id="priority"
@@ -84,9 +102,9 @@ function CreateOrder() {
             name={'cart'}
             value={JSON.stringify(cart)}
           ></input>
-          <button disabled={isSubmitting}>
-            {`${isSubmitting ? 'Placing order...' : 'Order now'}`}Order now
-          </button>
+          <Button>
+            {`${isSubmitting ? 'Placing order...' : 'Order now'}`}
+          </Button>
         </div>
       </Form>
     </div>
