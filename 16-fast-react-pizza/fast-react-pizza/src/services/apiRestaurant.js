@@ -1,3 +1,4 @@
+// Pizza API URL
 const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
 
 export async function getMenu() {
@@ -10,6 +11,7 @@ export async function getMenu() {
   return data;
 }
 
+// Fetches the data from API
 export async function getOrder(id) {
   const res = await fetch(`${API_URL}/order/${id}`);
   if (!res.ok) throw Error(`Couldn't find order #${id}`);

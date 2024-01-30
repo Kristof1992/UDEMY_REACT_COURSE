@@ -1,4 +1,9 @@
+import { useSelector } from 'react-redux';
+
 function Username() {
+  const username = useSelector((state) => state.user.username);
+
+  if (!username) return null;
   return (
     <div
       className="
@@ -7,7 +12,7 @@ function Username() {
       font-semibold
       md:block"
     >
-      Jack
+      {username}
     </div>
   );
 }

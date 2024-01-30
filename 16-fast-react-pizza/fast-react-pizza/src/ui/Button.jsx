@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function Button({ children, disabled, to, type = 'primary' }) {
+function Button({ children, disabled, to, type = 'primary', onClick }) {
   const base = `
   text-sm
   focus:ring-yellow
@@ -25,6 +25,7 @@ function Button({ children, disabled, to, type = 'primary' }) {
   const styles = {
     primary: base + ' px-4 py-3 md:px-6 sm:px-6 sm:py-4',
     small: base + ' px-4 py-2 md:px-5 md:py-2.5 text-xs',
+    round: base + ' px-2.5 py-1 md:px-3.5 md:py-2 text-sm',
     secondary: `
     inline-block
     text-sm
@@ -55,6 +56,14 @@ function Button({ children, disabled, to, type = 'primary' }) {
       <Link className={styles[type]} to={to}>
         {children}
       </Link>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <button className={styles[type]} onClick={onClick}>
+        {children}
+      </button>
     );
   }
   return (
