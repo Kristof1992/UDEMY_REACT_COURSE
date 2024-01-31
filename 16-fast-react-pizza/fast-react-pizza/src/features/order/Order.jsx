@@ -45,6 +45,7 @@ import {
 import { getOrder } from '../../services/apiRestaurant';
 import { useFetcher, useLoaderData } from 'react-router-dom';
 import { useEffect } from 'react';
+import UpdateOrder from './UpdateOrder';
 
 function Order() {
   const order = useLoaderData();
@@ -78,7 +79,7 @@ function Order() {
             </span>
           )}
           <span className="text-red-5 rounded-full bg-green-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-red-50">
-            {status === 'preparing' ? 'preparing order' : ''}
+            {status} order
           </span>
         </div>
       </div>
@@ -121,6 +122,7 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+      {!priority && <UpdateOrder order={order}></UpdateOrder>}
     </div>
   );
 }
