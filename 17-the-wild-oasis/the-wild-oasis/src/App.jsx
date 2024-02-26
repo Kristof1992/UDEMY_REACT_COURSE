@@ -15,6 +15,12 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import { Toaster } from "react-hot-toast";
 
+export const UI_OBJ = {
+  modalComponentUIState: {
+    isOpen: false,
+  },
+};
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
