@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Spinner from "../../ui/Spinner";
-import Table from "../../ui/Table";
+import { StyledTable as Table } from "../../ui/Table";
 import CabinRow from "../../features/cabins/CabinRow";
 import { useCabins } from "./useCabins";
 
@@ -26,19 +26,18 @@ function CabinTable() {
   if (isLoading) return <Spinner />;
 
   return (
-    <Table columns="0.6fr  1.8fr 2.2fr 1fr 1fr 1fr" role="table">
-      <Table.Header role="row">
+    <Table role="table">
+      <TableHeader role="row">
         <div></div>
         <div>Cabin</div>
         <div>Capacity</div>
         <div>Price</div>
         <div>Discount</div>
         <div></div>
-      </Table.Header>
-      <Table.Body
-        data={cabins}
-        render={(cabin) => <CabinRow cabin={cabin} key={cabin.id} />}
-      />
+      </TableHeader>
+      {cabins.map((cabin) => (
+        <CabinRow cabin={cabin} key={cabin.id} />
+      ))}
     </Table>
   );
 }
