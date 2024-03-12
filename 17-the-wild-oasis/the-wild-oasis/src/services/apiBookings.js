@@ -2,6 +2,8 @@ import { getToday } from "../utils/helpers";
 import supabase from "./supabase";
 
 export async function getBookings({ filter, sortBy }) {
+  // Passing in an object as 2nd argument with count: "exact" returns the count of the records e.g.
+  // select count(*) from "bookings";
   let query = supabase
     .from("bookings")
     .select(
