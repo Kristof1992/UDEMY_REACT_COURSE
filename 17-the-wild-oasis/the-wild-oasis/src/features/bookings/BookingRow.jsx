@@ -1,24 +1,24 @@
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import {
   HiPencil,
   HiTrash,
   HiEye,
   HiArrowUpOnSquare,
   HiArrowDownOnSquare,
-} from 'react-icons/hi2';
+} from "react-icons/hi2";
 
-import Tag from 'ui/Tag';
-import Menus from 'ui/Menus';
-import Modal from 'ui/Modal';
-import ConfirmDelete from 'ui/ConfirmDelete';
-import Table from 'ui/Table';
+import Tag from "../../ui/Tag";
+import Menus from "../../ui/Menus";
+import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
+import Table from "../../ui/Table";
 
-import { useDeleteBooking } from 'features/bookings/useDeleteBooking';
-import { formatCurrency } from 'utils/helpers';
-import { formatDistanceFromNow } from 'utils/helpers';
-import { useCheckout } from 'features/check-in-out/useCheckout';
-import { format, isToday } from 'date-fns';
+// import { useDeleteBooking } from '../bookings/';
+import { formatCurrency } from "../../utils/helpers";
+import { formatDistanceFromNow } from "../../utils/helpers";
+// import { useCheckout } from 'features/check-in-out/useCheckout';
+import { format, isToday } from "date-fns";
 
 // v1
 // const TableRow = styled.div`
@@ -37,7 +37,7 @@ const Cabin = styled.div`
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-grey-600);
-  font-family: 'Sono';
+  font-family: "Sono";
 `;
 
 const Stacked = styled.div`
@@ -56,7 +56,7 @@ const Stacked = styled.div`
 `;
 
 const Amount = styled.div`
-  font-family: 'Sono';
+  font-family: "Sono";
   font-weight: 500;
 `;
 
@@ -74,21 +74,19 @@ function BookingRow({
     cabins: { name: cabinName },
   },
 }) {
-  const { mutate: deleteBooking, isLoading: isDeleting } = useDeleteBooking();
-  const { mutate: checkout, isLoading: isCheckingOut } = useCheckout();
+  // const { mutate: deleteBooking, isLoading: isDeleting } = useDeleteBooking();
+  // const { mutate: checkout, isLoading: isCheckingOut } = useCheckout();
 
   const navigate = useNavigate();
 
-  // We will not allow editing at this point, as it's too complex for bookings... People just need to delete a booking and create a new one
-
   const statusToTagName = {
-    unconfirmed: 'blue',
-    'checked-in': 'green',
-    'checked-out': 'silver',
+    unconfirmed: "blue",
+    "checked-in": "green",
+    "checked-out": "silver",
   };
 
   return (
-    <Table.Row role='row'>
+    <Table.Row role="row">
       <Cabin>{cabinName}</Cabin>
 
       <Stacked>
@@ -99,17 +97,17 @@ function BookingRow({
       <Stacked>
         <span>
           {isToday(new Date(startDate))
-            ? 'Today'
-            : formatDistanceFromNow(startDate)}{' '}
+            ? "Today"
+            : formatDistanceFromNow(startDate)}{" "}
           &rarr; {numNights} night stay
         </span>
         <span>
-          {format(new Date(startDate), 'MMM dd yyyy')} &mdash;{' '}
-          {format(new Date(endDate), 'MMM dd yyyy')}
+          {format(new Date(startDate), "MMM dd yyyy")} &mdash;{" "}
+          {format(new Date(endDate), "MMM dd yyyy")}
         </span>
       </Stacked>
 
-      <Tag type={statusToTagName[status]}>{status.replace('-', ' ')}</Tag>
+      <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
 
@@ -125,7 +123,7 @@ function BookingRow({
               See details
             </Menus.Button>
 
-            {status === 'unconfirmed' && (
+            {status === "unconfirmed" && (
               <Menus.Button
                 onClick={() => navigate(`/checkin/${bookingId}`)}
                 icon={<HiArrowDownOnSquare />}
@@ -134,12 +132,8 @@ function BookingRow({
               </Menus.Button>
             )}
 
-            {status === 'checked-in' && (
-              <Menus.Button
-                onClick={() => checkout(bookingId)}
-                disabled={isCheckingOut}
-                icon={<HiArrowUpOnSquare />}
-              >
+            {status === "checked-in" && (
+              <Menus.Button icon={<HiArrowUpOnSquare />}>
                 Check out
               </Menus.Button>
             )}
@@ -148,36 +142,16 @@ function BookingRow({
             {/* <Menus.Button>Delete</Menus.Button> */}
 
             {/* Now it gets a bit confusing... */}
-            <Modal.Toggle opens='delete'>
+            {/* <Menus.Toggle opens="delete">
               <Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
-            </Modal.Toggle>
+            </Menus.Toggle> */}
           </Menus.List>
         </Menus.Menu>
 
-        {/* This needs to be OUTSIDE of the menu, which in no problem. The compound component gives us this flexibility */}
-        <Modal.Window name='delete'>
-          <ConfirmDelete
-            resource='booking'
-            // These options will be passed wherever the function gets called, and they determine what happens next
-            onConfirm={(options) => deleteBooking(bookingId, options)}
-            disabled={isDeleting}
-          />
-        </Modal.Window>
+        {/* <Modal.Window name="delete">
+          <ConfirmDelete resource="booking" />
+        </Modal.Window> */}
       </Modal>
-
-      {/* <div>
-        <ButtonWithConfirm
-          title='Delete booking'
-          description='Are you sure you want to delete this booking? This action can NOT be undone.'
-          confirmBtnLabel='Delete'
-          onConfirm={() => deleteBooking(bookingId)}
-          disabled={isDeleting}
-        >
-          Delete
-        </ButtonWithConfirm>
-
-        <Link to={`/bookings/${bookingId}`}>Details &rarr;</Link>
-      </div> */}
     </Table.Row>
   );
 }

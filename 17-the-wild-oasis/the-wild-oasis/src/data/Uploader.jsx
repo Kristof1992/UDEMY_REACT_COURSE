@@ -105,6 +105,7 @@ function Uploader() {
 
   async function uploadAll() {
     setIsLoading(true);
+
     // Bookings need to be deleted FIRST
     await deleteBookings();
     await deleteGuests();
