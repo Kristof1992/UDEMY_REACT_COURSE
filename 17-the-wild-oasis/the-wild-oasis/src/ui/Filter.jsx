@@ -1,3 +1,4 @@
+import { set } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import styled, { css } from "styled-components";
 
@@ -49,6 +50,8 @@ function Filter({ filterField, options }) {
   // Sets current URL String e.g. "status=all&sortBy=startDate-desc"
   function handleClick(value) {
     searchParams.set(filterField, value);
+    if (searchParams.get("page")) searchParams.set("page", 1);
+
     setSearchParams(searchParams);
   }
 

@@ -14,24 +14,11 @@ import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
 
-// import { useDeleteBooking } from '../bookings/';
+import { useDeleteBooking } from "./useDeleteBooking";
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
-// import { useCheckout } from 'features/check-in-out/useCheckout';
+import { useCheckout } from "../check-in-out/useCheckout";
 import { format, isToday } from "date-fns";
-
-// v1
-// const TableRow = styled.div`
-//   display: grid;
-//   grid-template-columns: 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr;
-//   column-gap: 2.4rem;
-//   align-items: center;
-//   padding: 1.4rem 2.4rem;
-
-//   &:not(:last-child) {
-//     border-bottom: 1px solid var(--color-grey-100);
-//   }
-// `;
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -74,8 +61,9 @@ function BookingRow({
     cabins: { name: cabinName },
   },
 }) {
-  // const { mutate: deleteBooking, isLoading: isDeleting } = useDeleteBooking();
-  // const { mutate: checkout, isLoading: isCheckingOut } = useCheckout();
+  const { deleteBooking, isDeleting } = useDeleteBooking();
+
+  const { checkout, isCheckingOut } = useCheckout();
 
   const navigate = useNavigate();
 
@@ -133,24 +121,29 @@ function BookingRow({
             )}
 
             {status === "checked-in" && (
-              <Menus.Button icon={<HiArrowUpOnSquare />}>
+              <Menus.Button
+                icon={<HiArrowUpOnSquare />}
+                disabled={isCheckingOut}
+                onClick={() => checkout(bookingId)}
+              >
                 Check out
               </Menus.Button>
             )}
 
             <Menus.Button icon={<HiPencil />}>Edit booking</Menus.Button>
-            {/* <Menus.Button>Delete</Menus.Button> */}
 
-            {/* Now it gets a bit confusing... */}
-            {/* <Menus.Toggle opens="delete">
+            <Modal.Open opens="delete">
               <Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
-            </Menus.Toggle> */}
+            </Modal.Open>
           </Menus.List>
         </Menus.Menu>
 
-        {/* <Modal.Window name="delete">
-          <ConfirmDelete resource="booking" />
-        </Modal.Window> */}
+        <Modal.Window name="delete">
+          <ConfirmDelete
+            resource="booking"
+            onConfirm={() => deleteBooking(bookingId)}
+          />
+        </Modal.Window>
       </Modal>
     </Table.Row>
   );
