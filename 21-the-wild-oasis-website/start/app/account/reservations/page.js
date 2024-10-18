@@ -1,12 +1,13 @@
 import ReservationCard from "@/app/_components/ReservationCard";
+import { getBookings } from "@/app/_lib/db/apiBookings";
 
 export const metadata = {
   title: "Reservations",
 };
 
-export default function Page() {
+export default async function Page() {
   // CHANGE
-  const bookings = [];
+  const bookings = await getBookings();
 
   return (
     <div>
@@ -14,7 +15,7 @@ export default function Page() {
         Your reservations
       </h2>
 
-      {bookings.length === 0 ? (
+      {bookings?.length === 0 ? (
         <p className="text-lg">
           You have no reservations yet. Check out our{" "}
           <a className="underline text-accent-500" href="/cabins">

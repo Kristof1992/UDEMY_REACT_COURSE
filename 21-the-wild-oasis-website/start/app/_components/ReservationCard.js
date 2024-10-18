@@ -2,12 +2,17 @@ import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { format, formatDistance, isPast, isToday, parseISO } from "date-fns";
 import DeleteReservation from "@/app/_components/DeleteReservation";
 
+import bg from "@/public/bg.png";
+import Image from "next/image";
+
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
     addSuffix: true,
   }).replace("about ", "");
 
 function ReservationCard({ booking }) {
+  // console.log(booking);
+
   const {
     id,
     guestId,
@@ -18,15 +23,15 @@ function ReservationCard({ booking }) {
     numGuests,
     status,
     created_at,
-    cabins: { name, image },
   } = booking;
+  // cabins: { name, image },
 
   return (
     <div className="flex border border-primary-800">
       <div className="relative h-32 aspect-square">
-        <img
-          src={image}
-          alt={`Cabin ${name}`}
+        <Image
+          src={bg}
+          alt={`Cabin xyz`}
           className="object-cover border-r border-primary-800"
         />
       </div>
@@ -34,7 +39,8 @@ function ReservationCard({ booking }) {
       <div className="flex-grow px-6 py-3 flex flex-col">
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-semibold">
-            {numNights} nights in Cabin {name}
+            {numNights} nights in Cabin
+            {/* {name} */}
           </h3>
           {isPast(new Date(startDate)) ? (
             <span className="bg-yellow-800 text-yellow-200 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm">
