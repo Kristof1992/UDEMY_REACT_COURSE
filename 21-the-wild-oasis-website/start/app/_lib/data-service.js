@@ -5,10 +5,8 @@ import { notFound } from "next/navigation";
 export const getCabins = async function () {
   const { data, error } = await supabase
     .from("cabins")
-    .select("id, name, maxCapacity, regularPrice, discount, image")
+    .select("*")
     .order("name");
-
-  await new Promise((res) => setTimeout(res, 2000));
 
   if (error) {
     console.error(error);
@@ -33,6 +31,17 @@ export async function getCabin(id) {
   if (error) {
     console.error(error);
     notFound();
+  }
+
+  return data;
+}
+
+export async function getBookings() {
+  const { data, error } = await supabase.from("bookings").select("*");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Booking could not get loaded");
   }
 
   return data;

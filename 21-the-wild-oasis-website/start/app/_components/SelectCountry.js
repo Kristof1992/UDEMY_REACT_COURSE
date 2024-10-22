@@ -17,11 +17,12 @@ async function SelectCountry({ defaultCountry, name, id, className }) {
       className={className}
     >
       <option value="">Select country...</option>
-      {countries.map((c) => (
+      {`list of countries`}
+      {/* {countries.map((c) => (
         <option key={c.name} value={`${c.name}%${c.flag}`}>
           {c.name}
         </option>
-      ))}
+      ))} */}
     </select>
   );
 }

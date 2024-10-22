@@ -1,5 +1,5 @@
 import ReservationCard from "@/app/_components/ReservationCard";
-import { getBookings } from "@/app/_lib/db/apiBookings";
+import { getBookings } from "@/app/_lib/data-service";
 
 export const metadata = {
   title: "Reservations",
